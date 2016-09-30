@@ -7,25 +7,56 @@ public class MontyHall
 
 	public static void main(String[] args)
 	{
+		System.out.println("WELCOME TO THE WILL ZHANG GAME SHOW! IF YOU \nPICK THE CORRECT DOOR, YOU WIN A FREE CAR!!!!!");
 		// model doors as ints
 
 		int carDoor = (int)(Math.random() * 3 + 1); //random door between 1 and 3 inclusive
 
-		int userDoor = getUserDoor();
+		int userDoor = getUserDoor();  //Asks user to choose a door
 
-		System.out.println("There is a goat behind door " + revealDoor(carDoor, userDoor));
+		int intRevealDoor = revealDoor(carDoor, userDoor); // Reveals a door with a goat behind it.  Cannot be the car door or the user door.
+		System.out.println("There is a goat behind door " + intRevealDoor + ".");
 
 		// Ask whether the user wants to swap doors
 		boolean swap = getUserSwap();
 
-		/**
-		#TODO finsh this
-		*/
-		//if (swap = )
+		int newUserDoor = wannaSwap(swap, userDoor, intRevealDoor); // Asks user if they want to swap.  In this case, program will pick the one that hasn't bene picked yet.
 
-		/**
-		#TODO Tell whether they win!
-		*/
+		System.out.println("You picked door " + newUserDoor + ", and.... \n");
+
+		if (newUserDoor == carDoor)
+		{
+			System.out.println("CONGRATULATIONS!!!! YOU HAVE JUST WON A FREE CAR!  DID I SAY CAR? LOL I MEANT BAR! HERE IT IS: \n====================================================================================================================================================================== \nCONGRATS!!!!!");
+		}
+		else
+		{
+			System.out.println("YOU LOSE! YOU GET NOTHING!");
+		}
+	}
+
+	/**
+	 * If the user wants to swap, the program picks the remaining door that isn't the original door or the revealed door.
+	 * If the user doesn't want to swap, the program does nothing.
+	 *
+	 *@param swap The bool value if the user wants to swap or not
+	 *@param userDoor The variable which represents the door the user picked
+	 *@param intRevealDoor The variable which represents the door that was revealed
+	 *@return Returns either the original userDoor if no swap, or the remaining door if swapped.
+	 */
+	public static int wannaSwap(boolean swap, int userDoor, int intRevealDoor)
+	{
+		int count = 1;
+		if (swap == true)
+		{
+			while (count == userDoor || count == intRevealDoor)
+				count = (int) (Math.random() * 3 + 1);
+
+			return count;
+		}
+		else
+		{
+			return userDoor;
+		}		
 	}
 
 	/**
@@ -35,15 +66,18 @@ public class MontyHall
 	 *@return Returns a boolean whether the user want to swap. (true to swap false to stay)
 	 *
 	 */
-
 	public static boolean getUserSwap()
 	{
 		System.out.println("Would you like to switch your door?");
 		String swap = kb.nextLine();
 		if (swap.equals("yes") || swap.equals("Yes"))
+		{
 			return true;
+		}
 		else
+		{
 			return false;
+		}
 	}
 
 
@@ -59,16 +93,21 @@ public class MontyHall
 	public static int revealDoor(int invalid1, int invalid2)
 	{
 		int reveal = (int) (Math.random() * 3 + 1);
-		while (reveal == invalid1 || reveal == invalid2);
+		while (reveal == invalid1 || reveal == invalid2)
 		{
 			reveal = (int) (Math.random() * 3 +1);
 		}
 		return reveal;
 	}
 
+	/**
+	 * Asks the user what door they want to pick
+	 * @return The door the user picked
+	 */
+
 	public static int getUserDoor()
 	{
-		System.out.print("Choose a door from 1-3.");
+		System.out.print("Choose a door from 1-3.\n");
 
 		String answer = kb.nextLine();
 
