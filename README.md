@@ -13,8 +13,8 @@ I like the octocat.
 
 Usage
 ======
-Compile with: 'javac MontyHall.java'
-Run with: 'java MontyHall'
+Compile with: `javac MontyHall.java`
+Run with: `java MontyHall`
 
 Author
 =======
