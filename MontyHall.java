@@ -1,5 +1,20 @@
 import java.util.Scanner;
 
+/**
+ * This program presents the famous Monty Hall problem using Java.
+ * The problem is apparently "paradoxical", but instead of being truly paradoxical, is merely very counter-intuitive.
+ * The user should always switch when prompted; it offers a 2/3 chance of choosing the car over the 1/3 when the user
+ * does not switch.  Most people believe that switching vs not switching is simply 50/50.  The program uses a number of
+ * obviously named variables with values 1-3 to keep track of the door with the car, the door the user picked, and a number
+ * of other essential doors (valid switches, swapped door, etc.)
+ *@param The arguments are passed in.
+ *@author William Zhang
+ */
+
+
+
+
+
 public class MontyHall
 {
 	// Declare things here, make them fields.  They are accessible everywhere.
@@ -30,7 +45,7 @@ public class MontyHall
 		}
 		else
 		{
-			System.out.println("YOU LOSE! YOU GET NOTHING!");
+			System.out.println("YOU LOSE! But you still get a goat.");
 		}
 	}
 
@@ -116,3 +131,8 @@ public class MontyHall
 
 	}
 }
+
+
+
+// Also, thanks for the sticker.  It looks dope as hell.
+
